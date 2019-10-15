@@ -25,6 +25,7 @@ type NewSubscriber struct {
 type CustomField struct {
 	Key   string
 	Value interface{}
+	Clear bool `json:",omitempty"`
 }
 
 // AddSubscriber adds a subscriber.
