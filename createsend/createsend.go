@@ -13,7 +13,7 @@ import (
 const (
 	libraryVersion = "0.0.1"
 	userAgent      = "createsend-go/" + libraryVersion
-	defaultBaseURL = "https://api.createsend.com/api/v3.1/"
+	defaultBaseURL = "https://api.createsend.com/api/v3.2/"
 )
 
 // A APIClient manages communication with the Campaign Monitor API.

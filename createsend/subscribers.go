@@ -15,6 +15,7 @@ type NewSubscriber struct {
 	CustomFields                           []CustomField `json:",omitempty"`
 	Resubscribe                            bool          `json:",omitempty"`
 	RestartSubscriptionBasedAutoresponders bool          `json:",omitempty"`
+	ConsentToTrack                         string        `json:",omitempty"`
 }
 
 // CustomField represents a subscriber custom data field.
@@ -73,7 +74,8 @@ type Subscriber struct {
 	// 10:28:00". This is not the format that encoding/json expects, so we must
 	// parse it separately. The parsed date is stored in the Date field, and the
 	// RFC3339 date string is overwritten into this field.
-	DateStr string `json:"date,omitempty"`
+	DateStr        string `json:"date,omitempty"`
+	ConsentToTrack string `json:",omitempty"`
 }
 
 // GetSubscriber gets a subscriber's details.
@@ -142,9 +144,10 @@ func (c *APIClient) DeleteSubscriber(listID string, email string) error {
 // See http://www.campaignmonitor.com/api/subscribers/#adding_a_subscriber for
 // more information.
 type ImportSubscriber struct {
-	EmailAddress string
-	Name         string        `json:",omitempty"`
-	CustomFields []CustomField `json:",omitempty"`
+	EmailAddress   string
+	Name           string        `json:",omitempty"`
+	CustomFields   []CustomField `json:",omitempty"`
+	ConsentToTrack string        `json:",omitempty"`
 }
 
 type ImportSubscribers struct {
